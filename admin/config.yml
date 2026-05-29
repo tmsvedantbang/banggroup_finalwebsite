@@ -1,0 +1,133 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "pages"
+    label: "Main Pages"
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "_data/home.json"
+        fields:
+          - {label: "Hero Title", name: "hero_title", widget: "string"}
+          - {label: "Hero Subtitle", name: "hero_subtitle", widget: "text"}
+          - {label: "Phone", name: "phone", widget: "string"}
+          - {label: "Email", name: "email", widget: "string"}
+
+      - label: "About Group"
+        name: "about"
+        file: "_data/about.json"
+        fields:
+          - {label: "Content", name: "content", widget: "markdown"}
+
+      - label: "Contact Us"
+        name: "contact"
+        file: "_data/contact.json"
+        fields:
+          - {label: "Contact Person", name: "person", widget: "string"}
+          - {label: "Address", name: "address", widget: "text"}
+          - {label: "Phone", name: "phone", widget: "string"}
+          - {label: "Email", name: "email", widget: "string"}
+
+  - name: "brands"
+    label: "Brand Pages"
+    files:
+      - label: "Bang & Scott"
+        name: "bang-scott"
+        file: "_data/brands/bang-scott.json"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Intro", name: "intro", widget: "text"}
+          - {label: "Content", name: "content", widget: "markdown"}
+          - {label: "Catalogue PDF URL", name: "catalogue_pdf", widget: "string", required: false, hint: "Paste a URL or upload a PDF"}
+
+      - label: "Bang Europa"
+        name: "bang-europa"
+        file: "_data/brands/bang-europa.json"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Intro", name: "intro", widget: "text"}
+          - {label: "Content", name: "content", widget: "markdown"}
+          - {label: "Catalogue PDF URL", name: "catalogue_pdf", widget: "string", required: false}
+
+      - label: "Thomas Scott"
+        name: "thomas-scott"
+        file: "_data/brands/thomas-scott.json"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Intro", name: "intro", widget: "text"}
+          - {label: "Content", name: "content", widget: "markdown"}
+          - {label: "Catalogue PDF URL", name: "catalogue_pdf", widget: "string", required: false}
+
+      - label: "Italian Gold"
+        name: "italian-gold"
+        file: "_data/brands/italian-gold.json"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Intro", name: "intro", widget: "text"}
+          - {label: "Content", name: "content", widget: "markdown"}
+          - {label: "Catalogue PDF URL", name: "catalogue_pdf", widget: "string", required: false}
+
+      - label: "Hammersmith"
+        name: "hammer-smith"
+        file: "_data/brands/hammer-smith.json"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Intro", name: "intro", widget: "text"}
+          - {label: "Content", name: "content", widget: "markdown"}
+          - {label: "Catalogue PDF URL", name: "catalogue_pdf", widget: "string", required: false}
+
+      - label: "FCC"
+        name: "fcc"
+        file: "_data/brands/fcc.json"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Intro", name: "intro", widget: "text"}
+          - {label: "Content", name: "content", widget: "markdown"}
+          - {label: "Catalogue PDF URL", name: "catalogue_pdf", widget: "string", required: false}
+
+  - name: "documents"
+    label: "Documents & PDFs"
+    label_singular: "Document"
+    folder: "_data/documents"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Category", name: "category", widget: "select", options: ["Annual Report", "Financial Results", "Corporate Governance", "Shareholding Pattern", "Board Meeting", "Policies", "Subsidiaries", "Other"]}
+      - {label: "Date", name: "date", widget: "date"}
+      - {label: "PDF URL", name: "pdf_url", widget: "string", hint: "Paste an external URL OR upload a PDF below"}
+      - {label: "Upload PDF", name: "pdf_upload", widget: "file", required: false, hint: "Upload a PDF directly (opens in new tab when visitors click)"}
+      - {label: "Description", name: "description", widget: "text", required: false}
+
+  - name: "news"
+    label: "News & Events"
+    label_singular: "News Item"
+    folder: "_data/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "date"}
+      - {label: "Content", name: "body", widget: "markdown"}
+      - {label: "PDF Attachment URL", name: "pdf_url", widget: "string", required: false, hint: "Optional PDF link — opens in new tab"}
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "Company Info"
+        name: "company"
+        file: "_data/settings.json"
+        fields:
+          - {label: "Company Name", name: "name", widget: "string"}
+          - {label: "Tagline", name: "tagline", widget: "string"}
+          - {label: "Phone", name: "phone", widget: "string"}
+          - {label: "Email", name: "email", widget: "string"}
+          - {label: "Address Line 1", name: "address1", widget: "string"}
+          - {label: "Address Line 2", name: "address2", widget: "string"}
+          - {label: "Address Line 3", name: "address3", widget: "string"}
+          - {label: "Footer Text", name: "footer_text", widget: "text", required: false}
